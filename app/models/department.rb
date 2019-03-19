@@ -1,4 +1,4 @@
-class Api::Department < ApplicationRecord
+class Department < ApplicationRecord
     has_many :products, dependent: :destroy
 
 end
