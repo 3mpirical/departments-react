@@ -17,9 +17,15 @@ class EditProductForm extends React.Component {
 
     render() {
         return (
-            <div className="product-form--add-container">
-                <h1>Edit Product <button onClick={() => this.props.deleteProduct(this.state.id)} >Delete</button> </h1>
-                <form className="product-form--add" onSubmit={this.handleSubmit} >
+            <div className="product-form-container edit-container">
+                <form className="product-form" onSubmit={this.handleSubmit} >
+                    <h1>Edit Product 
+                            <button 
+                                onClick={() => this.props.deleteProduct(this.state.id)}
+                                className="btn-red"
+                                id="delete-product-button" 
+                            >Delete</button> 
+                    </h1>
                     <input 
                         required
                         type="text"
@@ -52,7 +58,7 @@ class EditProductForm extends React.Component {
                         value={this.state.picture}
                         onChange={this.handleChange}
                     />
-                    <button>Submit</button>
+                    <button className="btn-green" >Update</button>
                 </form>
             </div>
 

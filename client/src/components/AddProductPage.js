@@ -28,12 +28,12 @@ class AddProductPage extends React.Component {
     renderProducts = () => {
         return this.state.products.map((product) => {
             return (
-                <div key={product.id} className="go-to-product">
-                    <li>{product.name}</li> 
-                    <Link to={`/products/${product.id}`} >
-                        <i className="far fa-arrow-alt-circle-right"></i>
-                    </Link>
-                </div>
+                <Link to={`/products/${product.id}`} className="go-to-product__link" >
+                    <div key={product.id} className="go-to-product">
+                            <li>{product.name}</li> 
+                            <i className="far fa-arrow-alt-circle-right"></i>
+                    </div>
+                </Link>
             )
         });
     }
@@ -46,8 +46,10 @@ class AddProductPage extends React.Component {
                     departmentId={this.props.match.params.id}
                 />
             
-                <div className="go-to-products-list">
-                    { this.renderProducts() }
+                <div className="go-to-products-list-container">
+                    <div className="go-to-products-list">
+                        { this.renderProducts() }
+                    </div>
                 </div>
             
             </div>

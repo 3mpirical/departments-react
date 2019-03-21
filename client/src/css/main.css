@@ -223,6 +223,15 @@ body {
   justify-content: center;
   width: calc(100% - 20rem); }
 
+.edit-container {
+  width: 50%; }
+  .edit-container h1 {
+    text-align: center; }
+  .edit-container #delete-product-button {
+    width: 5rem;
+    margin-left: 2rem;
+    vertical-align: middle; }
+
 .product-show {
   text-align: center;
   width: 50%;
@@ -275,23 +284,62 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%; }
-  .add-product-page .go-to-products-list {
+  .add-product-page .go-to-products-list-container {
     width: 50%;
     min-width: 40rem;
     flex-basis: static; }
-  .add-product-page .product-form--add-container {
+    .add-product-page .go-to-products-list-container .go-to-products-list {
+      width: 50%;
+      margin: 10rem auto 0 auto; }
+  .add-product-page .product-form-container {
     width: 50%;
     min-width: 40rem;
     flex-basis: static; }
 
-.product-form--add {
-  width: 30rem;
+.product-form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10rem auto;
+  width: 35rem;
+  height: 50rem; }
+  .product-form h1 {
+    text-align: center; }
+  .product-form input {
+    height: 4rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 3px solid #00cec9;
+    color: #f5f6fa;
+    padding-left: 1rem;
+    font-family: "Lato";
+    font-size: 1.5rem;
+    letter-spacing: 1px; }
+    .product-form input::placeholder {
+      color: #f5f6fa; }
+  .product-form button {
+    width: 40%;
+    margin: 0 auto; }
 
 .go-to-product {
   display: flex;
-  list-style: none; }
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem; }
+  .go-to-product__link {
+    text-decoration: none; }
+  .go-to-product li {
+    margin-right: 2rem;
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .go-to-product:hover {
+    color: #48dbfb; }
 
 .all-products-page-container {
   width: 100%; }

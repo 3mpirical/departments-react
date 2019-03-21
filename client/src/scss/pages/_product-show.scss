@@ -6,6 +6,17 @@
     width: calc(100% - 20rem);
 }
 
+.edit-container {
+    width: 50%;
+    h1 { text-align: center }
+
+    #delete-product-button {
+        width: 5rem;
+        margin-left: 2rem;
+        vertical-align: middle;
+    }
+}
+
 .product-show {
     text-align: center;
     width: 50%;

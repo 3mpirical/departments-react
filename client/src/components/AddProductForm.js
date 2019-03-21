@@ -23,9 +23,9 @@ class AddProductForm extends React.Component {
 
     render() {
         return (
-            <div className="product-form--add-container">
-                <h1>Add New Product</h1>
-                <form className="product-form--add" onSubmit={this.handleSubmit} >
+            <div className="product-form-container">
+                <form className="product-form" onSubmit={this.handleSubmit} >
+                    <h1>Add New Product</h1>
                     <input 
                         required
                         type="text"
@@ -58,7 +58,7 @@ class AddProductForm extends React.Component {
                         value={this.state.picture}
                         onChange={this.handleChange}
                     />
-                    <button>Submit</button>
+                    <button className="btn-green" >Create</button>
                 </form>
             </div>
 
