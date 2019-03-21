@@ -27,7 +27,14 @@ class Review extends React.Component {
                     onMouseEnter={() => this.mouseOverTrue()}
                     onMouseLeave={() => this.mouseOverFalse()}
                 >
-                    <div className="review__rating">
+                    <div 
+                        className="review__rating" 
+                        style={{color: `${ 
+                                            review.rating > 3 && "#00cec9"
+                                            || review.rating === 3 && "#feca57"
+                                            || review.rating < 3 && "#ff7675"
+                                        }`}} 
+                    >
                         Rating: {review.rating}/5 
                         { this.state.mouseOver && 
                             <button 

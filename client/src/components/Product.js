@@ -7,7 +7,7 @@ import { Review } from "./Review";
 
 
 class Product extends React.Component {
-    state = { product: {}, reviews: [], editing: false, displayAddReviewForm: false }
+    state = { product: {}, reviews: [], totalRating: null, editing: false, displayAddReviewForm: false }
 
     componentDidMount() {
         axios.get(`/api/products/${this.props.match.params.id}`)
@@ -16,7 +16,7 @@ class Product extends React.Component {
             return axios.get(`/api/products/${res.data.id}/reviews`);
         })
         .then((res) => {
-            this.setState({ reviews: res.data });
+            this.setState({ reviews: res.data }, () => this.setTotalRating());
         })
         .catch((err) => console.log(err));
     }
@@ -41,7 +41,7 @@ class Product extends React.Component {
         axios.post(`/api/products/${this.state.product.id}/reviews`, review)
         .then((res) => {
             const reviews = [...this.state.reviews, res.data];
-            this.setState({ reviews });
+            this.setState({ reviews }, () => this.setTotalRating());
         })
         .catch((err) => console.log(err));
     }
@@ -53,7 +53,7 @@ class Product extends React.Component {
                 if(review.id === res.data.id) return res.data;
                 return review; 
             });
-            this.setState({ reviews });
+            this.setState({ reviews }, () => this.setTotalRating());
         })
         .catch((err) => console.log(err));
     }
@@ -64,9 +64,18 @@ class Product extends React.Component {
             const reviews = this.state.reviews.filter((review) => {
                 if(review.id !== id) return review;
             });
-            this.setState({ reviews });
+            this.setState({ reviews }, () => this.setTotalRating());
         })
         .catch((err) => console.log(err));
+    }
+
+    setTotalRating = () => {
+        let totalRating = this.state.reviews.reduce((total, review) => {
+            return total += review.rating;
+        }, 0);
+        totalRating = (totalRating / this.state.reviews.length);
+        console.log(totalRating)
+        this.setState({ totalRating });
     }
 
     toggleEditing = () => {
@@ -127,6 +136,14 @@ class Product extends React.Component {
                         <button className="btn-blue" onClick={() => this.toggleAddReviewForm()} > 
                             { this.state.displayAddReviewForm? "Hide Form" : "Add Review" } 
                         </button> 
+                        <span
+                            className="total-rating"
+                            style={{color: `${ 
+                                                this.state.totalRating > 3 && "#00cec9"
+                                                || this.state.totalRating === 3 && "#feca57"
+                                                || this.state.totalRating < 3 && "#ff7675"
+                                            }`}}  
+                        >Total Rating: {this.state.totalRating} </span>
                     </h2>
 
                     { this.state.displayAddReviewForm && 

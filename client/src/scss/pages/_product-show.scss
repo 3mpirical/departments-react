@@ -20,7 +20,7 @@
 .product-show {
     text-align: center;
     width: 50%;
-    min-width: 40rem;
+    min-width: 50rem;
     border-radius: 3px;
 
     &__picture { 
@@ -50,9 +50,10 @@
 
 .reviews {
     width: 50%;
-    min-width: 40rem;
+    min-width: 50rem;
 
     h2 {
+        position: relative;
         width: 90%;
         padding: 2rem;
         border-bottom: 2px solid $color-blue;
@@ -60,6 +61,14 @@
         button {
             margin-left: 2rem;
             vertical-align: middle;
+        }
+
+        .total-rating {
+            position: absolute;
+            transform: translateY(-50%);
+            top: 55%;
+            right: 1rem;
+            font-size: 2rem;
         }
     }
 

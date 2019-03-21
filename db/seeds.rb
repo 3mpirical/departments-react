@@ -21,7 +21,7 @@ Department.all().each() {|department|
 
         for i in (1..10)
             Review.create(
-                rating: Faker::Number.between(0, 5),
+                rating: Faker::Number.between(1, 5),
                 text: Faker::Lorem.paragraph(7),
                 product_id: product.id,
             )

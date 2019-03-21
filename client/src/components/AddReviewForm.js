@@ -4,7 +4,7 @@ import React from "react";
 
 class AddReviewForm extends React.Component {
     state = {
-        rating: "",
+        rating: 1,
         text: "",
         product_id: this.props.productId,
     }
