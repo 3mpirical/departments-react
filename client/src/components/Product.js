@@ -138,9 +138,9 @@ class Product extends React.Component {
                         <span
                             className="total-rating"
                             style={{color: `${ 
-                                                this.state.totalRating > 3 && "#00cec9"
-                                                || this.state.totalRating === 3 && "#feca57"
-                                                || this.state.totalRating < 3 && "#ff7675"
+                                                this.state.totalRating >= 4 && "#00cec9"
+                                                || this.state.totalRating <= 2.9 && "#ff7675"
+                                                || this.state.totalRating && "#feca57"
                                             }`}}  
                         >Total Rating: {this.state.totalRating} </span>
                     </h2>
