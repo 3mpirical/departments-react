@@ -117,7 +117,7 @@ class Product extends React.Component {
                 <div className="reviews">
                     <h2>Reviews 
                         <button onClick={() => this.toggleAddReviewForm()} > 
-                            { this.state.displayAddReviewForm? "Hide" : "Add Review" } 
+                            { this.state.displayAddReviewForm? "Hide Form" : "Add Review" } 
                         </button> 
                     </h2>
 
