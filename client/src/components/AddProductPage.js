@@ -30,8 +30,8 @@ class AddProductPage extends React.Component {
             return (
                 <Link to={`/products/${product.id}`} key={product.id} className="go-to-product__link" >
                     <div className="go-to-product">
-                            <li>{product.name}</li> 
-                            <i className="far fa-arrow-alt-circle-right"></i>
+                        <li>{product.name}</li> 
+                        <i className="far fa-arrow-alt-circle-right"></i>
                     </div>
                 </Link>
             )
@@ -48,6 +48,7 @@ class AddProductPage extends React.Component {
             
                 <div className="go-to-products-list-container">
                     <div className="go-to-products-list">
+                        <h2 className="go-to-product__heading" >Go To Products</h2>
                         { this.renderProducts() }
                     </div>
                 </div>
