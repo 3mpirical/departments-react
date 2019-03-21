@@ -73,8 +73,7 @@ class Product extends React.Component {
         let totalRating = this.state.reviews.reduce((total, review) => {
             return total += review.rating;
         }, 0);
-        totalRating = (totalRating / this.state.reviews.length);
-        console.log(totalRating)
+        totalRating = (totalRating / this.state.reviews.length).toPrecision(2);
         this.setState({ totalRating });
     }
 
