@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { EditProductForm } from "./EditProductForm";
+import { AddReviewForm } from "./AddReviewForm";
+import { Review } from "./Review";
 
 
 
 class Product extends React.Component {
-    state = { product: {}, reviews: [], editing: false }
+    state = { product: {}, reviews: [], editing: false, displayAddReviewForm: false }
 
     componentDidMount() {
         axios.get(`/api/products/${this.props.match.params.id}`)
@@ -35,17 +37,55 @@ class Product extends React.Component {
         .catch((err) => console.log(err));
     }
 
+    createReview = (review) => {
+        axios.post(`/api/products/${this.state.product.id}/reviews`, review)
+        .then((res) => {
+            const reviews = [...this.state.reviews, res.data];
+            this.setState({ reviews });
+        })
+        .catch((err) => console.log(err));
+    }
+
+    updateReview = (review) => {
+        axios.put(`/api/products/${this.state.product.id}/reviews/${review.id}`, review)
+        .then((res) => {
+            const reviews = this.state.reviews.map((review) => {
+                if(review.id === res.data.id) return res.data;
+                return review; 
+            });
+            this.setState({ reviews });
+        })
+        .catch((err) => console.log(err));
+    }
+
+    deleteReview = (id) => {
+        axios.delete(`/api/products/${this.state.product.id}/reviews/${id}`)
+        .then((res) => {
+            const reviews = this.state.reviews.filter((review) => {
+                if(review.id !== id) return review;
+            });
+            this.setState({ reviews });
+        })
+        .catch((err) => console.log(err));
+    }
+
     toggleEditing = () => {
         this.setState({ editing: !this.state.editing });
+    }
+
+    toggleAddReviewForm = () => {
+        this.setState({ displayAddReviewForm: !this.state.displayAddReviewForm });
     }
 
     renderReviews = () => {
         return this.state.reviews.map((review) => {
             return(
-                <div key={review.id} className="review">
-                    <div className="review__rating">Rating: {review.rating}/5 </div>
-                    <p className="review__text"> {review.text} </p>
-                </div>
+                <Review 
+                    key={review.id} 
+                    review={review}
+                    updateReview={this.updateReview}
+                    deleteReview={this.deleteReview}
+                />
             )
         })
     }
@@ -75,7 +115,19 @@ class Product extends React.Component {
                             />
                     }
                 <div className="reviews">
-                    <h2>Reviews</h2>
+                    <h2>Reviews 
+                        <button onClick={() => this.toggleAddReviewForm()} > 
+                            { this.state.displayAddReviewForm? "Hide" : "Add Review" } 
+                        </button> 
+                    </h2>
+
+                    { this.state.displayAddReviewForm && 
+                        <AddReviewForm 
+                            createReview={this.createReview} 
+                            productId={this.state.product.id}
+                        /> 
+                    }
+
                     { this.renderReviews() }
                 </div>
             </div>
