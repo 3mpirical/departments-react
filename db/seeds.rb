@@ -15,7 +15,7 @@ Department.all().each() {|department|
             name: Faker::Commerce.product_name(),
             price: Faker::Commerce.price(),
             description: Faker::Lorem.paragraph(3),
-            picture: Faker::LoremFlickr.image("250x300", ['product']),
+            picture: "#{Faker::LoremFlickr.image("250x300", ['product'])}#{["a", "e", "i", "o", "u", "s", "ed"][rand(0..6)]}",
             department_id: department.id,
         )
 
