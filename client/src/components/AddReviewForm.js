@@ -21,21 +21,29 @@ class AddReviewForm extends React.Component {
 
     render() {
         return (
-            <div className="review-form-add-container" >
-                <form className="review-form--add" onSubmit={this.handleSubmit} >
+            <div className="review-form__container" >
+                <form className="review-form" onSubmit={this.handleSubmit} >
+                    <div className="review-form-top">
+                        <label>Rating
+                                <select 
+                                    required
+                                    name="rating"
+                                    value={this.state.rating}
+                                    onChange={this.handleChange}
+                                >   
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </label>
 
-                    <select 
-                        required
-                        name="rating"
-                        value={this.state.rating}
-                        onChange={this.handleChange}
-                    >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                            <span className="new-review">New Review</span>
+
+                            <button type="submit" className="btn-green" >Create</button>                
+                    </div>
+
 
                     <textarea
                         required
@@ -47,7 +55,6 @@ class AddReviewForm extends React.Component {
                     >
                     </textarea>
                     
-                    <button type="submit" >Create</button>
                 </form>
             </div>
         )

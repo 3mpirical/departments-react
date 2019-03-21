@@ -17,6 +17,9 @@ $color-red: #ff7675;
     border: 1px solid $color-blue;
     border-radius: 3px;
     cursor: pointer;
+
+    &:hover { background-color: lighten($color-grey, 10%) }
+    &:active { background-color: $color-blue }
 }
 .btn-green {
     display: inline-block;
@@ -27,6 +30,9 @@ $color-red: #ff7675;
     border: 1px solid $color-green;
     border-radius: 3px;
     cursor: pointer;
+
+    &:hover { background-color: lighten($color-grey, 10%) }
+    &:active { background-color: $color-green }
 }
 .btn-red {
     display: inline-block;
@@ -37,4 +43,7 @@ $color-red: #ff7675;
     border: 1px solid $color-red;
     border-radius: 3px;
     cursor: pointer;
+
+    &:hover { background-color: lighten($color-grey, 10%) }
+    &:active { background-color: $color-red }
 }
