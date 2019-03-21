@@ -28,8 +28,8 @@ class AddProductPage extends React.Component {
     renderProducts = () => {
         return this.state.products.map((product) => {
             return (
-                <Link to={`/products/${product.id}`} className="go-to-product__link" >
-                    <div key={product.id} className="go-to-product">
+                <Link to={`/products/${product.id}`} key={product.id} className="go-to-product__link" >
+                    <div className="go-to-product">
                             <li>{product.name}</li> 
                             <i className="far fa-arrow-alt-circle-right"></i>
                     </div>
