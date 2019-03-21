@@ -1,0 +1,33 @@
+
+
+.add-product-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .go-to-products-list {
+        width: 50%;
+        min-width: 40rem;
+        flex-basis: static;
+    }
+
+    .product-form--add-container {
+        width: 50%;
+        min-width: 40rem;
+        flex-basis: static;
+    }
+}
+
+.product-form--add {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.go-to-product {
+    display: flex;
+    list-style: none;
+}

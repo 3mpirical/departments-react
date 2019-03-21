@@ -1,0 +1,173 @@
+
+
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 5rem);
+    width: 20rem;
+    display: inline-block;
+    background-color: $color-grey;
+    color: $color-white;
+    border-right: 1px solid $color-white;
+    z-index: 10;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    &__clearfix {
+        content: "";
+        display: block;
+        height: calc(100vh - 5rem);
+        width: 20rem;
+        flex-shrink: 0;
+    }
+
+    &__header {
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        border-bottom: 1px solid rgba($color-white, 0.75);
+    }
+
+    &__button {
+        padding: 0.5rem 1rem;
+        background-color: rgba($color-blue, 0.85);
+        border: 1px solid $color-white;
+        border-radius: 3px;
+        color: $color-white;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition-duration: 0.1s;
+
+        &:hover {
+            background-color: lighten($color-blue, 10%);
+        }
+
+        &:active {
+            background-color: $color-white;
+        }
+    }
+}
+
+.department-form {
+    &--new {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0 1.5rem 0;
+        border-bottom: 1px solid rgba($color-white, 0.5);
+
+
+        input {
+            height: 3rem;
+            width: 75%; 
+            background-color: rgba(black, 0);
+            border: none;
+            border-bottom: 2px solid $color-white;
+            color: $color-white;
+            padding-left: 1rem;
+            font-family: "Lato";
+            letter-spacing: 1px;
+            font-size: 1.4rem;
+
+            &::placeholder { color: $color-white }
+        }
+
+        button{
+            color: $color-white;
+            background-color: rgba(black, 0);
+            border: none;
+            border-radius: 100px;
+            padding: 0;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition-duration: 0.1s;
+
+            &:active { color: $color-blue }
+        }
+    }
+
+    &--edit {
+
+        input {
+            height: 7rem;
+            width: 100%; 
+            background-color: rgba(black, 0);
+            border: none;
+            border-bottom: 1px solid $color-white;
+            color: $color-white;
+            padding-left: 1rem;
+            padding-top: 4rem;
+            font-family: "Lato";
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+
+            &::placeholder { color: $color-white }
+        }
+
+        .department-button-container {
+            display: flex;
+            justify-content: space-between;
+
+            .red {
+                background-color: $color-red;
+                &:hover { background-color: lighten($color-red, 10%); }
+            }
+        }
+
+        button {
+            padding: 0.15rem 0;
+            width: 50%;
+            background-color: rgba($color-green, 1);
+            border: 1px solid $color-white;
+            border-top: none;
+            color: $color-white;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition-duration: 0.1s;
+    
+            &:hover {
+                background-color: lighten($color-green, 5%);
+            }
+    
+            &:active {
+                background-color: $color-white;
+            }
+        }
+    }
+}
+
+.department {
+
+    a:link,
+    a:visited {
+        display: inline-block;
+        text-decoration: none;
+        color: $color-white;
+        border-bottom: 1px solid $color-white;
+        padding: 0.25rem;
+        margin: 1.5rem 0.5rem 0 0.5rem;
+        font-size: 1.4rem;
+        transition-duration: 0.1s;
+
+    }
+
+    a:hover {
+        color: $color-blue;
+        background-color: rgba($color-white, 0.2);
+    }
+
+    a:active {
+        background-color: white;
+    }
+}

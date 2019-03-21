@@ -1,3 +1,16 @@
-body {
-    background-color: purple;
-}
+///// ABSTRACTS /////
+@import "./abstracts/variables";
+
+///// BASE /////
+@import "./base/base";
+
+///// LAYOUT /////
+@import "./layout/navbar";
+@import "./layout/sidebar";
+
+///// PAGES /////
+@import "./pages/product-show";
+@import "./pages/add-product-page";
+
+///// COMPONENTS /////
+@import "./components/products";

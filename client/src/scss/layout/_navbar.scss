@@ -1,0 +1,53 @@
+
+
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    width: 100vw;
+    height: 5rem;
+    background-color: rgba($color-green, 0.85);
+    color: $color-white;
+    border-bottom: 1px solid $color-white;
+
+    &__clearfix {
+        width: 100vw;
+        height: 5rem;
+    }
+
+    &__left {
+        h3 {
+            font-size: 2.75rem;
+            letter-spacing: 2.5px;
+            color: $color-white;
+            border-top: 3px solid $color-blue;
+            border-bottom: 3px solid $color-blue;
+            padding: 0 1rem;
+        }
+    }
+
+    &__right {
+        a:link,
+        a:visited {
+            text-decoration: none;
+            color: $color-white;
+            font-weight: 300;
+            padding: 0.5rem 1.5rem;
+            border:1px solid $color-white;
+            border-radius: 3px;
+            background-color: rgba($color-blue, 0.8);
+            transition-duration: 0.1s;
+            margin: 0 1rem;
+        }
+
+        a:hover {
+            background-color: lighten($color-blue, 10%);
+        }
+
+        a:active {
+            background-color: $color-white;
+        }
+    }
+}
