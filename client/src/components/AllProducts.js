@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -34,7 +34,7 @@ class AllProducts extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="all-products-page-container">
                 <header className="products-header" > <h1>Featured Products</h1> </header>
                 <div className="products-container" >
                     { this.renderProducts() }

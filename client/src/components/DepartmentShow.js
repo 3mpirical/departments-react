@@ -38,7 +38,7 @@ class DepartmentShow extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="all-products-page-container" >
                 <header className="products-header" > 
 
                 {this.state.department && 

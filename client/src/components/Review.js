@@ -29,7 +29,12 @@ class Review extends React.Component {
                 >
                     <div className="review__rating">
                         Rating: {review.rating}/5 
-                        { this.state.mouseOver && <button onClick={this.toggleEditing} >Edit</button> }
+                        { this.state.mouseOver && 
+                            <button 
+                                className="btn-green"
+                                onClick={this.toggleEditing} 
+                            >Edit</button> 
+                        }
                     </div>
                     <p className="review__text"> {review.text} </p>
                 </div>

@@ -99,12 +99,20 @@ class Product extends React.Component {
                             <div className="product-show">
                                 <img src={product.picture} alt="" className="product-show__picture"/>
                                 <div className="text-container">
+                                    <div className="buttons">
+
+                                        <button 
+                                            className="product-go-back btn-blue"
+                                            onClick={() => this.props.history.goBack()} 
+                                        >Go Back</button>
+
+                                        <button 
+                                            className="product-edit-btn btn-blue"
+                                            onClick={() => this.toggleEditing()} 
+                                        >Edit Product</button>
+                                    </div>
                                     <h1>{product.name} ${product.price}</h1>
                                     <p>{product.description}</p>
-                                    <div className="buttons">
-                                        <button onClick={() => this.props.history.goBack()} >Go Back</button>
-                                        <button onClick={() => this.toggleEditing()} >Edit</button>
-                                    </div>
                                 </div>
                             </div>
                         :
@@ -116,7 +124,7 @@ class Product extends React.Component {
                     }
                 <div className="reviews">
                     <h2>Reviews 
-                        <button onClick={() => this.toggleAddReviewForm()} > 
+                        <button className="btn-blue" onClick={() => this.toggleAddReviewForm()} > 
                             { this.state.displayAddReviewForm? "Hide Form" : "Add Review" } 
                         </button> 
                     </h2>

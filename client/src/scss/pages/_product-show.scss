@@ -15,7 +15,7 @@
     &__picture { 
         height: 35rem;
         width: 35rem;
-        margin: 7rem 0 2rem 0;
+        margin: 7rem 0 1rem 0;
     }
 
     h1,
@@ -29,6 +29,12 @@
         font-size: 2.5rem;
         margin-bottom: 2rem;
     }
+
+    .buttons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 1rem;
+    }
 }
 
 .reviews {
@@ -40,11 +46,27 @@
         padding: 2rem;
         border-bottom: 2px solid $color-blue;
         font-size: 2.5rem;
+        button {
+            margin-left: 2rem;
+            vertical-align: middle;
+        }
     }
 
     .review {
         padding: 3rem;
         border-bottom: 1px solid $color-blue;
         width: 90%;
+
+        &__rating {
+            position: relative;
+            font-size: 1.8rem;
+            font-weight: bold;
+
+            button {
+                position: absolute;
+                margin-left: 1rem;
+                vertical-align: middle;
+            }
+        }
     }
 }
