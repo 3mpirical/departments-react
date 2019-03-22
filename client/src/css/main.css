@@ -465,4 +465,5 @@ body {
   .sortbar button {
     padding: 0.5rem 1rem;
     font-size: 1.6rem;
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    outline-color: #48dbfb; }
