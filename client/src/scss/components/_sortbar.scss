@@ -1,0 +1,23 @@
+
+.sortbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    width: calc(100vw - 20rem);
+    min-height: 5rem;
+    background-color: rgba($color-grey, 0.85);
+    border-bottom: 1px solid $color-white;
+
+    &__sortby {
+        font-size: 2rem;
+        color: $color-blue;    
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 1.6rem;
+        margin-left: 1rem;
+    }
+}

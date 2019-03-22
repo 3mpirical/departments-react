@@ -3,8 +3,44 @@ class Api::ProductsController < ApplicationController
 
     ### You'll probably want to get products
     ### from departments directly.
-    def index
-        render( json: Product.all() )
+    def index_by_newest
+        if(params[:department_id])
+            render( json: Product.get_products_by_newest(params[:department_id]) )
+        else
+            render( json: Product.get_products_by_newest() )
+        end
+    end
+
+    def index_by_oldest
+        if(params[:department_id])
+            render( json: Product.get_products_by_oldest(params[:department_id]) )
+        else
+            render( json: Product.get_products_by_oldest() )
+        end
+    end
+
+    def index_by_alphabetical
+        if(params[:department_id])
+            render( json: Product.get_products_by_alphabetical(params[:department_id]) )
+        else
+            render( json: Product.get_products_by_alphabetical() )
+        end
+    end
+
+    def index_by_price_high
+        if(params[:department_id])
+            render( json: Product.get_products_by_price_high(params[:department_id]) )
+        else
+            render( json: Product.get_products_by_price_high() )
+        end
+    end
+
+    def index_by_price_low
+        if(params[:department_id])
+            render( json: Product.get_products_by_price_low(params[:department_id]) )
+        else
+            render( json: Product.get_products_by_price_low() )
+        end
     end
 
     def index_by_department

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { SortBar } from "./SortBar";
 
 
 
@@ -8,9 +9,17 @@ class AllProducts extends React.Component {
     state = { products: [] }
 
     componentDidMount() {
-        axios.get(`/api/products`)
+        axios.get(`/api/products/newest`)
         .then((res) => {
             this.setState({ products: res.data });;
+        })
+        .catch((err) => console.log(err));
+    }
+
+    getProductsByOrder = (order) => {
+        axios.get(`/api/products/${order}`)
+        .then((res) => {
+            this.setState({ products: res.data });
         })
         .catch((err) => console.log(err));
     }
@@ -35,6 +44,7 @@ class AllProducts extends React.Component {
     render() {
         return (
             <div className="all-products-page-container">
+                <SortBar getProductsByOrder={this.getProductsByOrder} />
                 <header className="products-header" > <h1>Featured Products</h1> </header>
                 <div className="products-container" >
                     { this.renderProducts() }

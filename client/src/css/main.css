@@ -410,7 +410,7 @@ body {
 
 .products-header {
   width: 90%;
-  margin: 3rem auto 0 auto;
+  margin: 5rem auto 0 auto;
   padding: 1rem 2rem;
   border-bottom: 3px solid #f5f6fa;
   color: #48dbfb; }
@@ -448,3 +448,21 @@ body {
     .product p:hover {
       color: #48dbfb;
       cursor: default; }
+
+.sortbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  width: calc(100vw - 20rem);
+  min-height: 5rem;
+  background-color: rgba(113, 128, 147, 0.85);
+  border-bottom: 1px solid #f5f6fa; }
+  .sortbar__sortby {
+    font-size: 2rem;
+    color: #48dbfb; }
+  .sortbar button {
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+    margin-left: 1rem; }

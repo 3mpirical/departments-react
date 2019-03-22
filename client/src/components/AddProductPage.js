@@ -9,7 +9,7 @@ class AddProductPage extends React.Component {
     state = { products: [] }
 
     componentDidMount() {
-        axios.get(`/api/departments/${this.props.match.params.id}/products`)
+        axios.get(`/api/departments/${this.props.match.params.id}/products/newest`)
         .then((res) => {
             this.setState({ products: res.data });
         })

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { SortBar } from "./SortBar";
 
 
 
@@ -11,8 +12,16 @@ class DepartmentShow extends React.Component {
         axios.get(`/api/departments/${this.props.match.params.id}`)
         .then((res) => {
             this.setState({ department: res.data });
-            return axios.get(`/api/departments/${res.data.id}/products`)
+            return axios.get(`/api/departments/${res.data.id}/products/newest`)
         })
+        .then((res) => {
+            this.setState({ products: res.data });
+        })
+        .catch((err) => console.log(err));
+    }
+
+    getProductsByOrder = (order) => {
+        axios.get(`/api/departments/${this.props.match.params.id}/products/${order}`)
         .then((res) => {
             this.setState({ products: res.data });
         })
@@ -39,6 +48,8 @@ class DepartmentShow extends React.Component {
     render() {
         return (
             <div className="all-products-page-container" >
+                <SortBar getProductsByOrder={this.getProductsByOrder} />
+
                 <header className="products-header" > 
 
                 {this.state.department && 

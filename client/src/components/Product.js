@@ -135,14 +135,16 @@ class Product extends React.Component {
                         <button className="btn-blue" onClick={() => this.toggleAddReviewForm()} > 
                             { this.state.displayAddReviewForm? "Hide Form" : "Add Review" } 
                         </button> 
-                        <span
-                            className="total-rating"
-                            style={{color: `${ 
-                                                this.state.totalRating >= 4 && "#00cec9"
-                                                || this.state.totalRating <= 2.9 && "#ff7675"
-                                                || this.state.totalRating && "#feca57"
-                                            }`}}  
-                        >Total Rating: {this.state.totalRating} </span>
+                        {   !isNaN(this.state.totalRating) &&
+                            <span
+                                className="total-rating"
+                                style={{color: `${ 
+                                                    this.state.totalRating >= 4 && "#00cec9"
+                                                    || this.state.totalRating <= 2.9 && "#ff7675"
+                                                    || this.state.totalRating && "#feca57"
+                                                }`}}  
+                            >Total Rating: {this.state.totalRating} </span>
+                        }
                     </h2>
 
                     { this.state.displayAddReviewForm && 
